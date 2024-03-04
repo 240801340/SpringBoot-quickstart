@@ -2,9 +2,7 @@ package com.example.springbootquickstart.controller;
 
 import com.example.springbootquickstart.pojo.User;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -49,8 +47,14 @@ public class RequestController {
     }
 
     @RequestMapping("/jsonparam")
-    public String arrayparam(){
-        System.out.println();
+    public String arrayparam(@RequestBody User user){
+        System.out.println(user);
+        return "ok";
+    }
+
+    @RequestMapping("/path/{id}/{name}")
+    public String arrayparam(@PathVariable Integer id,@PathVariable String name){
+        System.out.println(id+name);
         return "ok";
     }
 }
